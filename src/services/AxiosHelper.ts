@@ -1,28 +1,25 @@
 import axios from "axios";
-const basePath = "https://api.punkapi.com/v2";
 
-class AxiosHelper { 
-    private path: string;
+class AxiosHelper {
+    private basePath: string;
     private retries: number;
-    
-    //number of retries set to 3
-    constructor(path: string, retries: number = 3) { 
-        this.path = path;
+
+    constructor(basePath: string, retries: number = 3) {
+        this.basePath = basePath;
         this.retries = retries;
     }
-    
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async getWithRetry(retriesLeft = this.retries): Promise<any> {
+    async get(path: string, retriesLeft: number = this.retries): Promise<{ data: any, success: boolean, error?: any }> {
         try {
-            const response = await axios.get(`${basePath}/${this.path}`);
-            return response.data;
+            const response = await axios.get(`${this.basePath}/${path}`);
+            return { data: response.data, success: true };
         } catch (error) {
             if (retriesLeft > 0) {
                 console.log(`Request failed. Retrying... Retries left: ${retriesLeft}`);
-                return this.getWithRetry(retriesLeft - 1);
+                return this.get(path, retriesLeft - 1);
             } else {
-                // Retries exhausted, throw the error
-                throw error;
+                return { data: null, success: false, error };
             }
         }
     }
