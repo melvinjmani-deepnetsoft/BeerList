@@ -14,7 +14,7 @@ class BeerService {
     async fetchBeers(pageNumber: number, perPage: number = 10) {
         try {
             this.beerStore.setIsLoading(true);
-            const { data, success } = await this.BeerAPI.get(`${APIRoutes.beers.all}?page=${pageNumber}&perPage=${perPage}`);
+            const { data, success } = await this.BeerAPI.get(`${APIRoutes.beers.all}?page=${pageNumber}&per_page=${perPage}`);
             if(success){
                 // Update BeerStore with fetched data
                 this.beerStore.setBeers(data);

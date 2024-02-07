@@ -12,7 +12,7 @@ class AxiosHelper {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async get(path: string, retriesLeft: number = this.retries): Promise<{ data: any, success: boolean, error?: any }> {
         try {
-            const response = await axios.get(`${this.basePath}/${path}`);
+            const response = await axios.get(`${this.basePath}${path}`);
             return { data: response.data, success: true };
         } catch (error) {
             if (retriesLeft > 0) {
