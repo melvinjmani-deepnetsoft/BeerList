@@ -4,6 +4,7 @@ import { Navigate } from 'react-router-dom';
 import SuspenseLoader from './components/suspenseLoader';
 import HeaderBarLayout from './layouts/headerBarLayout';
 import PageNotFound from './pages/notfound';
+
 // eslint-disable-next-line react/display-name
 const Loader = (Component: ComponentType<any>) => (props: any) => (
   <Suspense fallback={<SuspenseLoader />}>
@@ -12,6 +13,7 @@ const Loader = (Component: ComponentType<any>) => (props: any) => (
 );
 
 const BeerList = Loader(lazy(() => import('./pages/beerlist')));
+const BillingList = Loader(lazy(() => import('./pages/billingslist')));
 
 const routes = [
   {
@@ -28,7 +30,7 @@ const routes = [
       },
       {
         path: 'bill-list',
-        element: <p> Hello World </p>,
+        element: <BillingList />,
       },
       {
         path: "*", 

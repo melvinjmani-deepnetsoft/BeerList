@@ -70,7 +70,7 @@ const BeerList = () => {
                 data={beers}
             >
                 <Toolbar>
-                    <Checkbox disabled={false} label={'beers with > 8% ABV'} value={filter.abvAbove8} onChange={handleFilterChange} />
+                    <Checkbox disabled={false} label={'Show only Beers with ABV > 8%'} value={filter.abvAbove8} onChange={handleFilterChange} />
                 </Toolbar>
                 <Column field="id" title="ID" width="100px" />
                 <Column field="name" title="Name" width="250px" />

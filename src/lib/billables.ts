@@ -5,40 +5,8 @@ export interface ClubMember {
     children?: ClubMember[];
     circular?: boolean;
     shouldBilled?: boolean;
+    parent?: ClubMember | null;
 };
-
-export const determineBilling = (clubMembers: ClubMember[]): string[] => {
-    const billedMembers: string[] = [];
-    const visited: Set<number> = new Set();
-
-    const isCircular = (startId: number, currentId: number): boolean => {
-        if (visited.has(currentId)) return true;
-
-        visited.add(currentId);
-        const member = clubMembers.find(member => member.id === currentId);
-        if (!member || member.linkId === null) {
-            visited.delete(currentId);
-            return false;
-        }
-
-        return isCircular(startId, member.linkId);
-    };
-
-    const shouldBill = (member: ClubMember): boolean => {
-        if (member.linkId === null) return true;
-
-        visited.clear();
-        return !isCircular(member.id, member.linkId);
-    };
-
-    clubMembers.forEach(member => {
-        if (shouldBill(member)) {
-            billedMembers.push(member.name);
-        }
-    });
-
-    return billedMembers;
-}
 
 export const clubMembers: ClubMember[] = [
     { "id": 1, "name": "member A", "linkId": 3 },
@@ -55,7 +23,7 @@ export const clubMembers: ClubMember[] = [
 ];
 
 
-export const determineBillingV2 = (members: ClubMember[]): ClubMember[] => {
+export const determineBilling = (members: ClubMember[]): ClubMember[] => {
     const memberMap: Map<number, ClubMember> = new Map();
 
     // Create a map of members for easy access by id
@@ -71,16 +39,27 @@ export const determineBillingV2 = (members: ClubMember[]): ClubMember[] => {
         if (member.linkId !== null) {
             const parent = memberMap.get(member.linkId);
             if (parent) {
-                if (parent.linkId !== null) {
-                    // Circular reference detected
-                    parent.circular = true;
-                    member.circular = true;
+                // Check for circular references
+                let currentNode: ClubMember | null = parent;
+                while (currentNode !== null) {
+                    if (currentNode.id === member.id) {
+                        // Circular reference detected
+                        member.circular = true;
+                        member.shouldBilled = true;
+                        break;
+                    }
+                    currentNode = currentNode.parent || null;
                 }
-                parent?.children?.push(member);
-                member.shouldBilled = false;
+
+                if (!member.circular) {
+                    parent.children?.push(member);
+                    member.shouldBilled = false;
+                    member.parent = parent;
+                }
             }
         }
     });
 
     return members;
 }
+
