@@ -1,0 +1,17 @@
+// import type {Config} from 'jest';
+
+// const config: Config = {
+//   verbose: true,
+// };
+
+// export default config;
+
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  verbose: true,
+};
+
+export default config;
