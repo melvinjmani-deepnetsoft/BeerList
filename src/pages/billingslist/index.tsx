@@ -11,18 +11,21 @@ const BillingList = () => {
     }, []);
 
     return (
-        <Grid 
-            style={{ height: "450px", width: "70%" }} 
-            data={members} >
-                <Column field="id" title="ID" width="50" />
-                <Column field="name" title="Name" width="100px" />
-                <Column field="parent" title="Parent" width="100px" cells={{ data: ParentNameCell, }}/>
-                <Column field="circular" title="Circlular Assigment" width="150px" cells={{ data: CircularAssinment }} />
-                <Column field="shouldBilled" title="Billable" width="100px" cells={{ data: PaymentCell }} />
-                <Column field="children" title="Children" width="100px" cells={{ data:  NumberOfChiildrenCell}} />
-                <Column field="children" title="Pay For" width="200px" cells={{ data:  NameOfChildrenCell}} />
-                
-        </Grid>
+        <div data-testid="billing-list-page">
+            <Grid 
+                style={{ height: "450px", width: "70%" }} 
+                data={members} 
+            >
+                    <Column field="id" title="ID" width="50" />
+                    <Column field="name" title="Name" width="100px" />
+                    <Column field="parent" title="Parent" width="100px" cells={{ data: ParentNameCell, }}/>
+                    <Column field="circular" title="Circlular Assigment" width="150px" cells={{ data: CircularAssinment }} />
+                    <Column field="shouldBilled" title="Billable" width="100px" cells={{ data: PaymentCell }} />
+                    <Column field="children" title="Children" width="100px" cells={{ data:  NumberOfChiildrenCell}} />
+                    <Column field="children" title="Pay For" width="200px" cells={{ data:  NameOfChildrenCell}} />
+                    
+            </Grid>
+        </div>
     )
 }
 export default BillingList;

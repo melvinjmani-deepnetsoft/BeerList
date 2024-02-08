@@ -1,17 +1,15 @@
-// import type {Config} from 'jest';
-
-// const config: Config = {
-//   verbose: true,
-// };
-
-// export default config;
-
 import type { Config } from '@jest/types';
 
 const config: Config.InitialOptions = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   verbose: true,
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
+  moduleNameMapper: { 
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  }
 };
 
 export default config;

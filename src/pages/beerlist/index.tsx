@@ -51,7 +51,7 @@ const BeerList = () => {
     }
 
     return (
-        <div ref={gridRef}>
+        <div ref={gridRef} data-testid="beer-list-page">
             {isLoading ? <LoadingPanel gridRef={gridRef} /> : null}
             <Grid 
                 pageable={{
