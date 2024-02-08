@@ -30,6 +30,7 @@ const LoadingPanel = (props: LoadingPanelProps) => {
 
 
 const BeerList = () => {
+    /* We can push this into store may be ? */
     const beerService = new BeerService(useBeerStore.getState());
     const { beers, isLoading, setPageData, getCurrentPage, getPageSize, skip, take, filter, setFilter  } = useBeerStore();
     const gridRef = useRef(null);
@@ -49,7 +50,7 @@ const BeerList = () => {
     const handleFilterChange = (event: CheckboxChangeEvent) => {
         setFilter(event.value);
     }
-
+    /* We can push this into store may be ? */
     return (
         <div ref={gridRef} data-testid="beer-list-page">
             {isLoading ? <LoadingPanel gridRef={gridRef} /> : null}
