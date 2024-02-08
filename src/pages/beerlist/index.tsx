@@ -2,7 +2,8 @@ import * as ReactDOM from "react-dom";
 import { useEffect, useRef, MutableRefObject } from "react";
 import BeerService from "../../services/BeerService";
 import useBeerStore from '../../store';
-import { Grid, GridColumn as Column, GridPageChangeEvent } from "@progress/kendo-react-grid";
+import { Grid, GridColumn as Column, GridPageChangeEvent, GridToolbar as Toolbar } from "@progress/kendo-react-grid";
+import { Checkbox, CheckboxChangeEvent } from '@progress/kendo-react-inputs';
 
 type LoadingPanelProps = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,28 +31,32 @@ const LoadingPanel = (props: LoadingPanelProps) => {
 
 const BeerList = () => {
     const beerService = new BeerService(useBeerStore.getState());
-    const { beers, isLoading, setPageData, getCurrentPage, getPageSize, skip, take  } = useBeerStore();
+    const { beers, isLoading, setPageData, getCurrentPage, getPageSize, skip, take, filter, setFilter  } = useBeerStore();
     const gridRef = useRef(null);
     const currentPage = getCurrentPage();
     const perPage = getPageSize();
     useEffect(() => {
-        beerService.fetchBeers(currentPage, perPage)
+        beerService.fetchBeers(currentPage, perPage, filter)
             .catch((error) => {
                 console.error("Error fetching beers:", error);
             });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [skip, take]);
+    }, [skip, take, filter]);
     
     const pageChange = (event: GridPageChangeEvent) => {
         setPageData(event.page);
     }
+    const handleFilterChange = (event: CheckboxChangeEvent) => {
+        setFilter(event.value);
+    }
+
     return (
         <div ref={gridRef}>
             {isLoading ? <LoadingPanel gridRef={gridRef} /> : null}
             <Grid 
                 pageable={{
                     buttonCount: 5,
-                    pageSizes: [5, 10, 15, 25, 50],
+                    pageSizes: [5, 10, 15],
                     pageSizeValue: perPage,
                     type: "numeric",
                     previousNext: false,
@@ -64,6 +69,9 @@ const BeerList = () => {
                 style={{ height: "400px" }} 
                 data={beers}
             >
+                <Toolbar>
+                    <Checkbox disabled={false} label={'beers with > 8% ABV'} value={filter.abvAbove8} onChange={handleFilterChange} />
+                </Toolbar>
                 <Column field="id" title="ID" width="100px" />
                 <Column field="name" title="Name" width="250px" />
                 <Column field="tagline" title="Tagline" width="450px" />

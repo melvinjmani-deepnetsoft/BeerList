@@ -1,6 +1,7 @@
 import { AppBar, AppBarSection, AppBarSpacer, Avatar } from '@progress/kendo-react-layout';
 import { SvgIcon } from '@progress/kendo-react-common';
 import { handIcon } from '@progress/kendo-svg-icons';
+import { Link } from "react-router-dom";
 
 const kendokaAvatar = 'https://www.telerik.com/kendo-react-ui-develop/components/images/kendoka-react.png';
 
@@ -16,10 +17,21 @@ const Header = () => {
       <AppBarSpacer style={{ width: 4 }} />
 
       <AppBarSection>
-        <h1 style={{ fontSize: "18px", margin: 0 }}> beerlist </h1>
+        <h1 className="title"> GIT S.A. </h1>
       </AppBarSection>
 
       <AppBarSpacer style={{ width: 32 }} />
+
+      <AppBarSection className='appbar'>
+          <ul>
+            <li>
+              <span> <Link className="simple-link" to="/beer-list"> Beer List </Link> </span>
+            </li>
+            <li>
+              <span> <Link className='simple-link' to="/bill-list"> Billing List </Link> </span>
+            </li>
+          </ul>
+        </AppBarSection>
 
       <AppBarSpacer />
 

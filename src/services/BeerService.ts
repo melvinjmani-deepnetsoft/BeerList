@@ -1,6 +1,6 @@
 import AxiosHelper from "./AxiosHelper";
 import { APIRoutes } from "../apiRoutes";
-import { BeerStore } from "../store";
+import { BeerStore, FilterType } from "../store";
 
 class BeerService {
     private BeerAPI: AxiosHelper;
@@ -11,10 +11,14 @@ class BeerService {
         this.beerStore = beerStore;
     }
 
-    async fetchBeers(pageNumber: number, perPage: number = 10) {
+    async fetchBeers(pageNumber: number, perPage: number = 10, filter: FilterType ) {
         try {
             this.beerStore.setIsLoading(true);
-            const { data, success } = await this.BeerAPI.get(`${APIRoutes.beers.all}?page=${pageNumber}&per_page=${perPage}`);
+            let url = `${APIRoutes.beers.all}?page=${pageNumber}&per_page=${perPage}`;
+            if(filter.abvAbove8){
+                url += `&abv_gt=8`;
+            }
+            const { data, success } = await this.BeerAPI.get(url);
             if(success){
                 // Update BeerStore with fetched data
                 this.beerStore.setBeers(data);

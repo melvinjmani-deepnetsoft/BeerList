@@ -20,11 +20,15 @@ const routes = [
     children: [
       {
         path: '',
-        element: <Navigate to="beerlist" replace />,
+        element: <Navigate to="beer-list" replace />,
       },
       {
-        path: 'beerlist',
+        path: 'beer-list',
         element: <BeerList />,
+      },
+      {
+        path: 'bill-list',
+        element: <p> Hello World </p>,
       },
       {
         path: "*", 
