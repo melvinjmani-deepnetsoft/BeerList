@@ -11,15 +11,16 @@ class BeerService {
         this.beerStore = beerStore;
     }
 
-    async fetchBeers(pageNumber: number, perPage: number = 10, filter: FilterType ) {
+    async fetchBeers(pageNumber: number, perPage: number = 10, filter: FilterType = { abvAbove8 : false } ) {
         try {
             this.beerStore.setIsLoading(true);
             let url = `${APIRoutes.beers.all}?page=${pageNumber}&per_page=${perPage}`;
             if(filter.abvAbove8){
                 url += `&abv_gt=8`;
             }
-            const { data, success } = await this.BeerAPI.get(url);
-            if(success){
+            const response = await this.BeerAPI.get(url);
+            if(response && response.data && response.success){
+                const { data } = response;
                 // Update BeerStore with fetched data
                 this.beerStore.setBeers(data);
                 this.beerStore.setIsLoading(false);
