@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1707392333255" clover="3.2.0">
-  <project timestamp="1707392333255" name="All files">
+<coverage generated="1707392783658" clover="3.2.0">
+  <project timestamp="1707392783659" name="All files">
     <metrics statements="163" coveredstatements="144" conditionals="37" coveredconditionals="26" methods="40" coveredmethods="33" elements="240" coveredelements="203" complexity="0" loc="163" ncloc="163" packages="10" files="14" classes="14"/>
     <package name="src">
       <metrics statements="29" coveredstatements="25" conditionals="4" coveredconditionals="2" methods="15" coveredmethods="11"/>
@@ -29,25 +29,25 @@
       </file>
       <file name="store.ts" path="C:\Users\melvi\Documents\Projects - DNS\Coding Tests\BeerList\src\store.ts">
         <metrics statements="12" coveredstatements="8" conditionals="4" coveredconditionals="2" methods="8" coveredmethods="4"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="51" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="52" count="4" type="stmt"/>
-        <line num="55" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="56" count="4" type="stmt"/>
+        <line num="51" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="52" count="8" type="stmt"/>
+        <line num="55" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="8" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.apiRoutes">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="C:\Users\melvi\Documents\Projects - DNS\Coding Tests\BeerList\src\apiRoutes\index.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.header">
@@ -118,32 +118,32 @@
       <metrics statements="26" coveredstatements="23" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="3"/>
       <file name="index.tsx" path="C:\Users\melvi\Documents\Projects - DNS\Coding Tests\BeerList\src\pages\beerlist\index.tsx">
         <metrics statements="26" coveredstatements="23" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="3"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="24" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="35" count="4" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="24" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="8" type="stmt"/>
+        <line num="34" count="8" type="stmt"/>
+        <line num="35" count="8" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
+        <line num="37" count="8" type="stmt"/>
+        <line num="38" count="8" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
+        <line num="46" count="8" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="49" count="4" type="stmt"/>
+        <line num="49" count="8" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="53" count="4" type="stmt"/>
-        <line num="86" count="1" type="stmt"/>
+        <line num="53" count="8" type="stmt"/>
+        <line num="86" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.billingslist">
@@ -195,34 +195,34 @@
       <metrics statements="37" coveredstatements="25" conditionals="12" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="AxiosHelper.ts" path="C:\Users\melvi\Documents\Projects - DNS\Coding Tests\BeerList\src\services\AxiosHelper.ts">
         <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="4" count="7" type="stmt"/>
-        <line num="5" count="7" type="stmt"/>
-        <line num="8" count="7" type="stmt"/>
-        <line num="9" count="7" type="stmt"/>
-        <line num="14" count="9" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="4" count="11" type="stmt"/>
+        <line num="5" count="11" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="18" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="19" count="4" type="stmt"/>
         <line num="20" count="4" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
       </file>
       <file name="BeerService.ts" path="C:\Users\melvi\Documents\Projects - DNS\Coding Tests\BeerList\src\services\BeerService.ts">
         <metrics statements="24" coveredstatements="12" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="8" type="stmt"/>
+        <line num="7" count="8" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
+        <line num="11" count="8" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="cond" truecount="0" falsecount="1"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
         <line num="22" count="0" type="cond" truecount="0" falsecount="5"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
@@ -234,7 +234,7 @@
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
       </file>
     </package>
   </project>
